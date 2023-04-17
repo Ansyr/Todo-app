@@ -2,10 +2,12 @@
 
 
 .card{
+  width: 100%;
   padding: 16px;
   background:var(--card-clr);
   color: var(--card-text-clr);
   font-weight: 300;
   font-size: 14px;
   border-radius: 8px
+
 }

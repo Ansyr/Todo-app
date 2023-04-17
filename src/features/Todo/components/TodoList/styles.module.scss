@@ -9,5 +9,9 @@
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  gap: 16px;
+  p{
+    max-width: 500px;
+  }
 }
 

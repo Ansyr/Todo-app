@@ -8,13 +8,18 @@ import {Trash} from "@/components/ui/svg/Trash/Trash";
 export const TodoList = () => {
     return (
         <div className={styles.container}>
-            <Card className={styles.flex}>
+            <Card >
+                <div className={styles.flex}>
+                    <Checkbox/>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet dignissimos dolorum et eveniet expedita fugiat ipsa iste maxime nisi rerum, tenetur ullam velit? Fugit odit possimus sapiente? Dolore, expedita?
+                    </p>
 
-                <Checkbox/>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet dignissimos dolorum et eveniet expedita fugiat ipsa iste maxime nisi rerum, tenetur ullam velit? Fugit odit possimus sapiente? Dolore, expedita?
 
 
-                <Trash/>
+                    <Trash/>
+                </div>
+
             </Card>
 
         </div>
