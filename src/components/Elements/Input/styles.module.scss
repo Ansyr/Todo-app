@@ -1,0 +1,20 @@
+@import "/src/styles/variables";
+@import "/src/styles/defaults";
+
+.inputTodo {
+  width: 638px;
+  height: 54px;
+  background: var(--input-clr);
+  border: 1px solid var(--input-clr);
+  border-radius: 8px;
+  color: #808080;
+  padding: 0 16px 0 16px;
+
+
+
+
+  //position: absolute;
+  //top: 20%;
+  //left: 50%;
+  //transform: translate(-50%, -50%);
+}

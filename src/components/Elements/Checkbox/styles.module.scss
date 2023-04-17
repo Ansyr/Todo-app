@@ -1,0 +1,29 @@
+@import "/src/styles/variables";
+
+.inputCheck:focus .checkbox{
+  border: 1px solid var(--checkBox-clr);
+
+}
+
+.checkBox{
+  display: flex;
+  align-items: center;
+  border-radius:50%;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+
+
+}
+
+.active{
+  border: 3px solid var(--checkBox-clr);
+}
+
+.disabled{
+  opacity: 0.7;
+}
+
+.activeBox{
+  background-color: var(--checkBox-clr);
+}

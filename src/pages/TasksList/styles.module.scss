@@ -1,0 +1,20 @@
+@import "../../styles/variables";
+@import "../../styles/defaults";
+.main{
+  background: var(--primary-bgc);
+  height: 100vh;
+  justify-content: center;
+}
+
+.form{
+  margin-top: -25px;
+}
+
+.headTodo{
+  margin-top: 65px;
+  margin-bottom: 40px;
+}
+
+.line{
+  margin-bottom: 60px;
+}

@@ -1,0 +1,11 @@
+@import "../../../styles/variables";
+@import "../../../styles/defaults";
+.btn{
+  padding: 16px;
+  text-align: center;
+  background: var(--btn-clr);
+  border-radius: 8px;
+  align-items: center;
+
+  color: var(--primary-text);
+}

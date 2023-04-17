@@ -1,0 +1,27 @@
+@import "../../../../styles/variables";
+
+.root{
+  display: flex;
+  font-size: 14px;
+  color: var(--counter-info);
+  line-height: 16px;
+  -webkit-text-stroke: 0.5px #0D0D0D;
+  align-items: center;
+  text-align: center;
+}
+
+.counter{
+
+  display: flex;
+
+  background: var(--counter-clr);
+  color: var(--counter-text);
+
+  font-size: 12px;
+  text-align: center;
+
+  padding: 2px 8px;
+  border-radius: 9px;
+
+  margin-left: 8px;
+}

@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+@import "../../styles/defaults";
+
+.root{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 900;
+  font-size: 48px;
+
+
+
+
+  padding-top: 72px;
+  padding-bottom: 80px;
+
+  color: var(--primary-color-main);
+  background: var(--secondary-bgc);
+
+  h1{
+    margin-left: 12px;
+  }
+  span{
+    color: var(--extra-color-text);
+  }
+}
