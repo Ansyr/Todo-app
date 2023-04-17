@@ -1,6 +1,6 @@
 import React, {ReactNode} from 'react';
-import {TodoCount} from "@/features/Todo/components/TodoCount";
-import {TodoDoneCount} from "@/features/Todo/components/TodoDoneCount";
+import {TodoCount} from "@/modules/Todo/components/TodoCount";
+import {TodoDoneCount} from "@/modules/Todo/components/TodoDoneCount";
 import styles from './styles.module.scss'
 import clsx from "clsx";
 

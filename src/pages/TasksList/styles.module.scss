@@ -2,7 +2,7 @@
 @import "../../styles/defaults";
 .main{
   background: var(--primary-bgc);
-  height: 100vh;
+  min-height: 100%;
   justify-content: center;
 }
 
@@ -17,4 +17,10 @@
 
 .line{
   margin-bottom: 60px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
