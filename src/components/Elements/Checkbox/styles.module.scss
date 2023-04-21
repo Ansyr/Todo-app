@@ -6,6 +6,7 @@
 }
 
 .checkBox{
+
   display: flex;
   align-items: center;
   border-radius:50%;
@@ -16,10 +17,10 @@
 
 }
 
+
 .active{
   border: 3px solid var(--checkBox-clr);
 }
-
 .disabled{
   opacity: 0.7;
 }

@@ -6,6 +6,7 @@
   flex-direction: row;
   gap: 16px;
   p{
+    word-break: break-all;
     max-width: 500px;
   }
 }

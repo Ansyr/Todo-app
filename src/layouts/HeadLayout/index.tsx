@@ -4,6 +4,7 @@ import styles from './styles.module.scss'
 import {Racket} from "../../components/ui/svg/Racket";
 
 export const HeadLayout = () => {
+
     return (
         <div className={styles.root}>
             <Racket/>

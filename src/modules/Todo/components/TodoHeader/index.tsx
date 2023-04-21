@@ -4,14 +4,17 @@ import {TodoDoneCount} from "@/modules/Todo/components/TodoDoneCount";
 import styles from './styles.module.scss'
 import clsx from "clsx";
 
-interface TodoHeader{
+interface TodoHeaderProps{
     className?:string;
+    toDoCount: number;
+    toDoDoneCount:number;
 }
-export const TodoHeader = (props: TodoHeader) => {
+export const TodoHeader = (props: TodoHeaderProps) => {
+    const {toDoCount,toDoDoneCount} = props;
     return (
         <div className={clsx(styles.headTodo,props.className)}>
-            <TodoCount/>
-            <TodoDoneCount/>
+            <TodoCount toDoCount={toDoCount}/>
+            <TodoDoneCount toDoDoneCount={toDoDoneCount} toDoCount={toDoCount}/>
         </div>
     );
 };

@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {HTMLAttributes, HTMLInputTypeAttribute, InputHTMLAttributes, useState} from 'react';
 import styles from './styles.module.scss'
 
-export const Input = () => {
+
+interface InputProps{
+    value:string;
+    onChange:any;
+    type?:HTMLInputTypeAttribute;
+    placeholder?: string;
+
+}
+
+
+export const Input = (props : InputProps) => {
+    const {placeholder,type,value,onChange} = props
     return (
-        <input className={styles.inputTodo} type="text" placeholder={'Введите задачу'}/>
+        <input className={styles.inputTodo} type={type} placeholder={placeholder} value={value} onChange={onChange}/>
     );
 };
 

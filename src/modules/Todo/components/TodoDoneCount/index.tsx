@@ -5,6 +5,9 @@ import clsx from "clsx";
 interface TodoCountProps{
     children?:string;
     className?: string;
+    toDoCount: number;
+
+    toDoDoneCount: number;
 }
 export const TodoDoneCount = (props: TodoCountProps) => {
 
@@ -13,7 +16,7 @@ export const TodoDoneCount = (props: TodoCountProps) => {
             <h2>
                 Выполнено
             </h2>
-            <div className={styles.counter}> 0 из 5</div>
+            <div className={styles.counter}> {props.toDoDoneCount} из {props.toDoCount}</div>
         </div>
     );
 };
