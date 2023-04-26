@@ -2,7 +2,7 @@
 @import "/src/styles/defaults";
 
 .inputTodo {
-  width: 638px;
+  min-width: 500px;
   height: 54px;
   background: var(--input-clr);
   border: 1px solid var(--input-clr);

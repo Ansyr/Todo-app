@@ -26,7 +26,7 @@ export const CreateForm = (props: CreateFormProps) => {
     return (
         <div className={clsx(styles.form,props.className)} >
             <form onSubmit={onSubmit} className={styles.form}>
-            <Input value={value} onChange={onChange} />
+            <Input className={styles.inputTodo} value={value} onChange={onChange} />
             <Button type={'submit'} className={styles.btn} onClick={onClick}>
                 Добавить <PlusIcon/>
             </Button>
