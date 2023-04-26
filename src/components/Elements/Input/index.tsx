@@ -5,7 +5,7 @@ import clsx from "clsx";
 
 interface InputProps{
     value:string;
-    onChange:any;
+    onChange: (e: any) => void;
     type?:HTMLInputTypeAttribute;
     placeholder?: string;
     className?: string;
@@ -18,4 +18,3 @@ export const Input = (props : InputProps) => {
         <input className={clsx(styles.inputTodo,className)} type={type} placeholder={placeholder} value={value} onChange={onChange}/>
     );
 };
-

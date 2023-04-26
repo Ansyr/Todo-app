@@ -20,9 +20,6 @@ export const TasksList = () => {
     const [todos, setTodos] = useState<ToDo[]>([]);
     const [sortedTodos, setSortedTodos] = useState<ToDo[]>([])
     const [text, setText] = useState('')
-    const [update,setUpdate] = useState(false);
-
-    const [redactText, setRedactText] = useState('');
 
     useEffect(() => {
         if (!localStorage.getItem('tasks')) return;
@@ -37,31 +34,18 @@ export const TasksList = () => {
         setSortedTodos(tasks)
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
+
     const onClickAddTodo = (e, text) => {
         e.preventDefault();
         if (text !== '') {
             saveTodos([...todos, {
-                id: todos.length,
+                id: Date.now(),
                 active: false,
                 title: text,
             }])
         }
         setText('');
 
-    }
-
-    const onClickDelete = (index: number) => {
-        const newTodos = todos.filter((todo) => todo.id !== index)
-        saveTodos([...newTodos])
-    }
-
-    const onClickActive = (index: number) => {
-        const newTodos = [...todos];
-        const current = newTodos.find(todo => todo.id === index);
-        if (current) {
-            current.active = !current.active;
-            saveTodos(newTodos)
-        }
     }
 
     const onClickSort = (id) => {
@@ -77,27 +61,11 @@ export const TasksList = () => {
         setSortedTodos(filteredTodos)
     }
 
-    const onSubmitRedactTodo = (e, id) => {
-        e.preventDefault();
-        const newTodos = [...todos];
-        const current = newTodos.find(todo => todo.id === id);
-        if (current) {
-            current.title = redactText;
-            saveTodos(newTodos)
-        }
-    }
-
-
-    const todosItem: any = sortedTodos?.map((todo) => <TodoCard
-            toDoText={todo.title}
-            key={todo.id}
-            onClickTrash={() => onClickDelete(todo.id)}
-            onClick={() => onClickActive(todo.id)}
-            checked={todo.active}
-            onChange={(e) => setRedactText(e.target.value)}
-            onSubmit={(e) => onSubmitRedactTodo(e, todo.id)}
-            setUpdate={()=>setUpdate(!update)}
-            update={update}
+    const todosItem: any = todos && sortedTodos.map((todo) => <TodoCard
+            key = {todo.id}
+            todo = {todo}
+            todos = {todos}
+            saveTodos = {(arr: any) => saveTodos(arr)}
         />
     )
 
@@ -133,4 +101,3 @@ export const TasksList = () => {
         </div>
     );
 };
-
