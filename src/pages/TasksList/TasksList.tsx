@@ -35,7 +35,7 @@ export const TasksList = () => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
-    const onClickAddTodo = (e, text) => {
+    const onClickAddTodo = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, text:string) => {
         e.preventDefault();
         if (text !== '') {
             saveTodos([...todos, {
@@ -45,10 +45,9 @@ export const TasksList = () => {
             }])
         }
         setText('');
-
     }
 
-    const onClickSort = (id) => {
+    const onClickSort = (id: number) => {
         const filteredTodos = todos.filter(todo => {
             if (id === 1) {
                 return todo.active
@@ -61,14 +60,6 @@ export const TasksList = () => {
         setSortedTodos(filteredTodos)
     }
 
-    const todosItem: any = todos && sortedTodos.map((todo) => <TodoCard
-            key = {todo.id}
-            todo = {todo}
-            todos = {todos}
-            saveTodos = {(arr: any) => saveTodos(arr)}
-        />
-    )
-
 
     return (
         <div className={styles.main}>
@@ -76,24 +67,27 @@ export const TasksList = () => {
             <Container>
                 <CreateForm
                     className={styles.form}
-                    onClick={(e) => onClickAddTodo(e, text)}
+                    onClick={(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => onClickAddTodo(e, text)}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
                     value={text}
-
-                    onSubmit={(e: React.ChangeEvent<HTMLInputElement>) => console.log(e)}
                 />
                 <TodoHeader
                     className={styles.headTodo}
-                    toDoCount={todosItem.length}
+                    toDoCount={todos.length}
                     toDoDoneCount={todos.filter(todo => todo.active).length}/>
                 <div className={styles.container}>
                     {
-                        todosItem.length === 0 ? <ListEmpty/> : todosItem
+                        todos.length === 0 ? <ListEmpty/> : sortedTodos.map((todo) => <TodoCard
+                            key={todo.id}
+                            todo={todo}
+                            todos={todos}
+                            saveTodos={(todos) => saveTodos(todos)}
+                        />)
                     }
                 </div>
                 <div className={clsx(styles.sortBtns, styles.containerSort)}>
                     {
-                        sortBtns.map((sortBtn, i) => <Button onClick={() => onClickSort(i)} key={i}>{sortBtn}</Button>)
+                        todos.length !== 0 && sortBtns.map((sortBtn, i) => <Button onClick={() => onClickSort(i)} key={i}>{sortBtn}</Button>)
                     }
                 </div>
 

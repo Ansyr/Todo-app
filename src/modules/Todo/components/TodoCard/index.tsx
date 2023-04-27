@@ -6,38 +6,35 @@ import {Trash} from "@/components/ui/svg/Trash/Trash";
 import Redact from "@/components/ui/svg/Redact";
 import {Input} from "@/components/Elements/Input";
 
+
+type ToDo = {
+    id: number;
+    title: string;
+    active: boolean;
+}
 interface ToDoCardProps {
-    toDoCounts: number;
-    onClickTrash: () => void;
+    onClickTrash?: () => void;
     onClick?: () => void;
     onClickRedact?:(id:number) => void
-
-    disabled?:boolean
-
-    onSubmit: any;
-
-    setUpdate?:() => void;
-    upadate?:boolean;
-
-    todo: any,
-    todos: any;
-    saveTodos: (arr: any) => void
+    onSubmit?: (e: React.ChangeEvent<HTMLFormElement>) => void;
+    todo: ToDo;
+    todos: ToDo[];
+    saveTodos: (todos:ToDo[]) => void
 }
 
 
 export const TodoCard = (props: ToDoCardProps) => {
     const {
-        disabled,
-
         todo,
         todos,
         saveTodos
     } = props;
 
+
     const [update,setUpdate] = useState(false)
     const [redactText, setRedactText] = useState('');
 
-    const onSubmitRedactTodo = (e, id) => {
+    const onSubmitRedactTodo = (e: React.ChangeEvent<HTMLFormElement>, id: number) => {
         e.preventDefault();
         const newTodos = [...todos];
         const current = newTodos.find(todo => todo.id === id);
@@ -66,7 +63,7 @@ export const TodoCard = (props: ToDoCardProps) => {
     return (
         <Card>
             <div className={styles.flex}>
-                <Checkbox checked={todo.active} disabled={disabled} onClick={() => onClickActive(todo.id)}/>
+                <Checkbox checked={todo.active}  onClick={() => onClickActive(todo.id)}/>
                 <p>
                     {String(todo.title)}
                 </p>
@@ -78,8 +75,8 @@ export const TodoCard = (props: ToDoCardProps) => {
             </div>
             {
                 update &&
-                <form onSubmit={ (e) => onSubmitRedactTodo(e, todo.id)}>
-                    <Input value={redactText} onChange={(e) => setRedactText(e.target.value)} className={styles.redactInput}/>
+                <form onSubmit={(e:React.ChangeEvent<HTMLFormElement>) => onSubmitRedactTodo(e, todo.id)}>
+                    <Input value={redactText} onChange={setRedactText} className={styles.redactInput}/>
                 </form>
             }
 

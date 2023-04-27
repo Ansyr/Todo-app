@@ -8,14 +8,11 @@ import clsx from "clsx";
 
 interface CreateFormProps{
     className?: string;
-    onClick:(e: React.ChangeEvent<HTMLInputElement>)=>void;
-
-    onChange:any;
+    onClick:(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>void;
+    onChange:(e: React.ChangeEvent<HTMLInputElement>)=>void;
     placeholder?: string;
     value: string;
-
-
-    onSubmit?:any
+    onSubmit?:() => void
 }
 
 

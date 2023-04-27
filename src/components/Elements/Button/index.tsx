@@ -2,11 +2,9 @@ import React, {ButtonHTMLAttributes, MouseEvent, ReactNode} from 'react';
 import styles from './styles.module.scss'
 import clsx from "clsx";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
-    onClick: ()=>void;
     type?: "button" | "submit" | "reset" | undefined;
-
     children: ReactNode;
 }
 export const Button = (props :ButtonProps) => {
