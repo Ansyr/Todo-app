@@ -68,7 +68,7 @@ export const TasksList = () => {
                 <CreateForm
                     className={styles.form}
                     onClick={(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) => onClickAddTodo(e, text)}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
+                    onChange={(text) => setText(text)}
                     value={text}
                 />
                 <TodoHeader
